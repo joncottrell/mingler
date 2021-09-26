@@ -11,8 +11,8 @@ function App() {
 
   const [schedule, setSchedule] = useState(null);
 
-  const handleSubmit = (people, weeks) => {
-    submitPeople(people, weeks, (s) => {
+  const handleSubmit = (people) => {
+    submitPeople(people, (s) => {
       setSchedule(s);
     });
   };

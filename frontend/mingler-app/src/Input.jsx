@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 const Input = ({onSubmit}) => {
     const [people, setPeople] = useState([]);
-    const [weeks, setWeeks] = useState(0);
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -14,18 +13,12 @@ const Input = ({onSubmit}) => {
     };
 
     const handleSubmit = () => {
-        onSubmit(people, weeks);
-    };
-
-    const handleWeeksChange = (e) => {
-        setWeeks(parseInt(e.target.value));
+        onSubmit(people);
     };
 
     return (
         <>
             <h2>People</h2>
-            <input type="text" pattern="[0-9]*" placeholder="Weeks" onChange={handleWeeksChange} />
-            <br />
             <input type="text" placeholder="Enter names" onKeyDown={handleKeyDown} />
             <ul>
                 {people.map((item) => (

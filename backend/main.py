@@ -17,7 +17,6 @@ app.mount("/public", StaticFiles(directory="public"), name="public")
 
 class Group(BaseModel):
     people: typing.List[str]
-    weeks: int
 
 
 @app.get("/")
@@ -26,7 +25,7 @@ def read_index():
 
 @app.post("/")
 def mingle(group: Group):
-    pairings = generate_pairings(group.people, group.weeks)
+    pairings = generate_pairings(group.people)
     return pairings
 
 
